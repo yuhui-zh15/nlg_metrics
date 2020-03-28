@@ -10,6 +10,7 @@ Work in progress.
 git clone git@github.com:yuhui-zh15/nlg_metrics.git
 cd nlg_metrics
 pip install -e .
+python -m pytest tests/
 ```
 
 ## Get Started

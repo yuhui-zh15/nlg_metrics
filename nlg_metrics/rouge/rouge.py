@@ -3,8 +3,8 @@ Score a list of hypotheses against a list of references.
 """
 import argparse
 
-from rouge import rouge_scorer
-from rouge import scoring
+from nlg_metrics.rouge import rouge_scorer
+from nlg_metrics.rouge import scoring
 
 class RougeScorer():
     """ A scorer wrapper with initialization. """

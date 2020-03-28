@@ -42,8 +42,8 @@ from nltk.stem import porter
 import six
 from six.moves import map
 from six.moves import range
-from rouge import scoring
-from rouge import tokenize
+from nlg_metrics.rouge import scoring
+from nlg_metrics.rouge import tokenize
 
 
 class RougeScorer(scoring.BaseScorer):

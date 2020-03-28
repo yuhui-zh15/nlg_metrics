@@ -1,10 +1,10 @@
-from rouge.rouge import RougeScorer as ROUGE
-from bertscore.bert_util import bert_cos_score_idf, get_model, model2layers, cache_scibert
-from factscore.fact_extractor import AllenNLPFactExtractor, KnowItAllFactExtractor
-from factscore.sent_encoder import InferSentSentenceEncoder, GoogleUniversalSentenceEncoder
-from factscore.fact_connector import BasicFactConnector
-from factscore.score_calculator import DotProductScoreCalculator, DotProductWithThresholdScoreCalculator
-from factscore.plot_util import plot_heatmap
+from nlg_metrics.rouge.rouge import RougeScorer as ROUGE
+from nlg_metrics.bertscore.bert_util import bert_cos_score_idf, get_model, model2layers, cache_scibert
+from nlg_metrics.factscore.fact_extractor import AllenNLPFactExtractor, KnowItAllFactExtractor
+from nlg_metrics.factscore.sent_encoder import InferSentSentenceEncoder, GoogleUniversalSentenceEncoder
+from nlg_metrics.factscore.fact_connector import BasicFactConnector
+from nlg_metrics.factscore.score_calculator import DotProductScoreCalculator, DotProductWithThresholdScoreCalculator
+from nlg_metrics.factscore.plot_util import plot_heatmap
 from collections import defaultdict
 from transformers import AutoModel, AutoTokenizer
 from typing import List

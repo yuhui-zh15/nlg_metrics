@@ -1,4 +1,4 @@
-from nlg_metrics.scorer import RougeScorer, BertScorer, FactScorer
+from nlg_metrics.scorer import RougeScorer, BertScorer, FactScorer, MoverScorer
 
 import logging.config
 logging.config.dictConfig(

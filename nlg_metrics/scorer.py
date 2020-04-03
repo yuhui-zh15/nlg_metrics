@@ -5,6 +5,7 @@ from nlg_metrics.factscore.sent_encoder import InferSentSentenceEncoder, GoogleU
 from nlg_metrics.factscore.fact_connector import BasicFactConnector
 from nlg_metrics.factscore.score_calculator import DotProductScoreCalculator, DotProductWithThresholdScoreCalculator
 from nlg_metrics.factscore.plot_util import plot_heatmap
+from nlg_metrics.moverscore.moverscore_v2 import get_idf_dict, word_mover_score 
 from collections import defaultdict
 from transformers import AutoModel, AutoTokenizer
 from typing import List
@@ -179,6 +180,19 @@ class FactScorer(Scorer):
         for i, fact in enumerate(facts):
             print(f'{prefix}{i}: {fact}')
         print('-' * 63)
+
+
+class MoverScorer(Scorer):
+    def __init__(self):
+        super(MoverScorer, self).__init__(name='MoverScorer')
+
+    def score(self, gens: List[str], refs: List[str], verbose=False) -> List[float]:
+        # idf_dict_hyp = get_idf_dict(gens) 
+        # idf_dict_ref = get_idf_dict(refs) 
+        idf_dict_hyp = defaultdict(lambda: 1.)
+        idf_dict_ref = defaultdict(lambda: 1.)
+        scores = word_mover_score(refs, gens, idf_dict_ref, idf_dict_hyp, stop_words=[], n_gram=1, remove_subwords=True)
+        return scores
 
 
 if __name__ == '__main__':

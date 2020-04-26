@@ -29,7 +29,7 @@ class Scorer(object):
         raise NotImplementedError()
 
 class RougeScorer(Scorer):
-    def __init__(self, metric='rougeLsum', tags=['<t>', '</t>'], stem=True):
+    def __init__(self, metric='rougeLsum', tags=None, stem=True):
         super(RougeScorer, self).__init__(name='RougeScorer')
         self.metric = metric
         self.stem = stem
@@ -46,8 +46,10 @@ class RougeScorer(Scorer):
         return results
 
     def split_sentences(self, article: str) -> List[str]:
-        # bare_sents = re.findall(r'%s (.+?) %s' % (self.tags[0], self.tags[1]), article)
-        bare_sents = [article]
+        if self.tags:
+            bare_sents = re.findall(r'%s (.+?) %s' % (self.tags[0], self.tags[1]), article)
+        else:
+            bare_sents = [article]
         return bare_sents
 
     def preprocess(self, gens: List[List[str]], refs: List[List[str]]):

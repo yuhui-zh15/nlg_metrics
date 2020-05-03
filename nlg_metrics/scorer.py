@@ -5,7 +5,7 @@ from nlg_metrics.factscore.sent_encoder import InferSentSentenceEncoder, GoogleU
 from nlg_metrics.factscore.fact_connector import BasicFactConnector
 from nlg_metrics.factscore.score_calculator import DotProductScoreCalculator, DotProductWithThresholdScoreCalculator
 from nlg_metrics.factscore.plot_util import plot_heatmap
-from nlg_metrics.moverscore.moverscore_v2 import get_idf_dict, word_mover_score 
+#from nlg_metrics.moverscore.moverscore_v2 import get_idf_dict, word_mover_score 
 from collections import defaultdict
 from transformers import AutoModel, AutoTokenizer
 from typing import List
